@@ -161,6 +161,9 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get("/",(req,res,next)=>{
+    res.redirect("/listings");
+})
 
 
 /*Setting the Route Handler for the listings. */
