@@ -1,0 +1,106 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <br><br>
+                <h3>Create a New Listings</h3>
+                <form action="/listings" enctype="multipart/form-data" method="POST" class="needs-validation" novalidate>
+
+                    <div class="form-title mb-3">
+                        <label for="title" class="form-label mb-0">Title</label>
+                        <input type="text" required class="form-control" id="title" name="listing[title]"
+                            placeholder="Enter title">
+                            <div class="valid-feedback">
+                                Title looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid title
+                             </div>
+                           
+
+                    </div>
+
+                    <div class="form-description mb-3">
+                        <label for="description" class="form-label mb-0">Description</label>
+                        <textarea required type="text" class="form-control" id="description" name="listing[description]"
+                            placeholder="Enter description"></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a short description
+                             </div>
+                    </div>
+
+                    <!-- <div class="form-image mb-3">
+                        <label for="image" class="form-label mb-0">Image Link</label>
+                        <input type="text" id="image" class="form-control" name="listing[image]"
+                            placeholder="Enter image URL/Link">
+                    </div> -->
+
+                    <div class="form-image mb-3">
+                        <label for="imageFile" class="form-label mb-0">Upload Listing Image</label>
+                        <input required type="file" id="imageFile" class="form-control" name="listing[image]"
+                            >
+                    </div>
+
+                    <div>
+                        <label for="category">Select Category for Your Airbnb</label>
+                    <select class="form-select mb-3" required id="category" name="listing[category]">
+                        <option value="" selected >Please select a category</option>                        </option>
+                        <option value="Trending">Trending</option>
+                        <option value="Mountains">Mountains</option>
+                        <option value="Farms">Farms</option>
+                        <option value="Arctic">Arctic</option>
+                        <option value="Domes">Domes</option>
+                        <option value="Castles">Castles</option>
+                        <option value="Amazing Pools">Amazing Pools</option>
+                        <option value="Camping">Camping</option>
+                        <option value="Boat">Boat</option>
+                        <option value="Iconic Cities">Iconic Cities</option>
+                        <option value="Rooms">Rooms</option>
+                    </select>
+                    </div>
+                    
+
+                    <div class="row">
+                        <div class=" col-md-4 form-price mb-3">
+                            <label for="price" class="form-label mb-0">Price</label>
+                            <input required  id="price" class="form-control" name="listing[price]"
+                                placeholder="1200">
+                                <div class="invalid-feedback">
+                                   Price should be valid and in numbers
+                                </div>
+                        </div>
+
+                        <div class="col-md-8 form-country mb-3">
+                            <label for="country" class="form-label mb-0">Country</label>
+                            <input required type="text" id="country" class="form-control" name="listing[country]"
+                                placeholder="India">
+                                <div class="invalid-feedback">
+                                    Country name should be valid
+                                </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-location mb-3">
+                        <label for="location" class="form-label mb-0">Location</label>
+                        <input required type="text" id="location" class="form-control" name="listing[location]"
+                            placeholder="Enter location">
+                            <div class="invalid-feedback">
+                                Location should be valid
+                            </div>
+
+                    </div>
+
+                    <button class="btn btn-dark add-btn mt-3">Add</button>
+                </form>
+            </div>
+        </div>
+        <!-- here writing the name as object[key] will create an object inside the req.body object and in that created object all this key is present with their respective values. -->
+
+        <!-- In HTML, using the `name` attribute in the format `object[key]` will create an object inside the `req.body` object. This created object will contain the specified `key` properties with their respective values. -->
+
+        <br><br>
+    </body>

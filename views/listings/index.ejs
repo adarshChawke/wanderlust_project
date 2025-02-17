@@ -1,0 +1,236 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <!-- <style>
+            #filters {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+
+            .filter {
+                text-align: center;
+                margin-right: 2rem;
+                margin-top: 2rem;
+                opacity: 0.7;
+            }
+
+            .filter:hover {
+                opacity: 1;
+            }
+
+            .filter p {
+                font-size: 0.8rem;
+            }
+
+            .taxInfo {
+                display: none;
+            }
+
+            .tax-toggle {
+                border: 1px solid black;
+                border-radius: 1rem;
+                height: 2.5rem;
+                padding:1rem ;
+                margin-left: auto ;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style> -->
+
+
+        <div class="filters" id="filters">
+            <a href="/listings/category/Trending" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div> <i class="fa-solid fa-fire"></i>
+                    </div>
+                    <p>Trending</p>
+                </div>
+            </a>
+            <a href="/listings/category/Rooms" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div> <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <p>Rooms</p>
+                </div>
+            </a>
+            <a href="/listings/category/Villas" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div> <i class="fa-solid fa-mountain-city"></i>
+                    </div>
+                    <p>Villas</p>
+                </div>
+            </a>
+            <a href="/listings/category/Mountains" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain"></i>
+                    </div>
+                    <p>Mountains</p>
+                </div>
+            </a>
+            <a href="/listings/category/Castles" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div> <i class="fa-brands fa-fort-awesome"></i>
+                    </div>
+                    <p>Castles</p>
+                </div>
+            </a>
+            <a href="/listings/category/Beaches" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i>
+                    </div>
+                    <p>
+                        Beaches
+                    </p>
+                </div>
+            </a>
+            <a href="/listings/category/Campaign" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-campground"></i>
+                    </div>
+                    <p>
+                        Camping
+                    </p>
+                </div>
+            </a>
+            <a href="/listings/category/Farms" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-cow"></i>
+                    </div>
+                    <p>
+                        Farms
+                    </p>
+                </div>
+            </a>
+            <a href="/listings/category/Arctic" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-cow"></i>
+                    </div>
+                    <p>
+                        Arctic
+                    </p>
+                </div>
+            </a>
+            <a href="/listings/category/Domes" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-igloo"></i>
+                    </div>
+                    <p>
+                        Domes
+                    </p>
+                </div>
+            </a>
+            <a href="/listings/category/Boat" class="text-reset text-decoration-none">
+                <div class="filter">
+                    <div><i class="fa-solid fa-ship"></i>
+                    </div>
+                    <p>
+                        Boat
+                    </p>
+                </div>
+            </a>
+
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+                </div>
+            </div>
+        </div>
+        <!-- <h3>All Listings</h3> -->
+        <div class="smallFilterBox mt-2">
+            <div class="smallFilter ">
+                <select class="form-select form-select-sm filterSelect filterBox" aria-label=".form-select-sm example">
+                    <option selected>Select Filter</option>
+                    <option value="Trending">Trending</option></a>
+                    <option value="Rooms">Rooms</option>
+                    <option value="Camping">Camping</option>
+                    <option value="Farms">Farms</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Boat">Boat</option>
+                    <option value="Domes">Domes</option>
+                    <option value="Beaches">Beaches</option>
+                    <option value="Villas">Villas</option>
+                    <option value="Castles">Castles</option>
+                </select>
+            </div>
+
+            <div class="ssBox">
+                <div class="form-check form-switch " id="small-tax-switch">
+                    <input class="form-check-input" type="checkbox" id="small-switch">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Pricing include taxes</label>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for(let listing of allListings ){ %>
+                <a href="/listings/<%=listing._id%>/show" class="listing-link">
+                    <div class="card col listing-card" ">
+                        <img src=" <%=listing.image.url%>" class="card-img-top" style="height: 20rem;"
+                        alt="listing_image">
+                        <div class="card-img-overlay">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%= listing.title%>
+                                </b>
+                                <br>&#8377;<%=listing.price.toLocaleString("en-IN")%>/night
+                                    <i class="taxInfo"> &nbsp+18% GST</i>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </a>
+                <% } %>
+
+        </div>
+
+        <script>
+            let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+
+            taxSwitch.addEventListener("click", () => {
+                let taxInfo = document.getElementsByClassName("taxInfo");
+
+                for (info of taxInfo) {
+
+                    if (info.style.display !== "inline") {
+                        info.style.display = "inline";
+                        document.getElementById("small-switch").checked = true;
+                    } else {
+                        info.style.display = "none";
+                        document.getElementById("small-switch").checked = false;
+
+                    }
+                }
+            });
+
+
+
+            let smallTaxSwitch = document.getElementById("small-switch");
+
+
+            smallTaxSwitch.addEventListener("click", () => {
+                let taxInfo = document.getElementsByClassName("taxInfo");
+
+                for (info of taxInfo) {
+
+                    if (info.style.display !== "inline") {
+                        info.style.display = "inline";
+                        document.getElementById("flexSwitchCheckDefault").checked = true;
+
+                    } else {
+                        info.style.display = "none";
+                        document.getElementById("flexSwitchCheckDefault").checked = false;
+
+                    }
+                }
+            });
+
+        </script>
+    </body>

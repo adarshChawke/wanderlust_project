@@ -1,0 +1,24 @@
+/*Styling applied to the search option of the navbar/\. */
+
+.search-btn {
+    background-color: #fe424d;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .search-btn:hover {
+    background-color: #fe424d;
+    color: #ffffff;
+  }
+
+  .fa-magnifying-glass {
+    display: inline;
+    margin-right: 0.5rem;
+
+  }
+  .search-input{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
